@@ -24,7 +24,7 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN apt-get update && apt-get install -y yarn
 
 # Composer
-RUN apt-get install -y php7.2-cli php7.2-curl php7.2-zip
+RUN apt-get install -y php7.2-cli php7.2-curl php7.2-zip php7.2-mbstring php7.2-bcmath php7.2-mysql php7.2-dev
 RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
 RUN php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
