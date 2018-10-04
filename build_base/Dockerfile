@@ -22,6 +22,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get update && apt-get install -y yarn
+RUN apt-get install -y npm
 
 # Composer
 RUN apt-get install -y php7.2-cli php7.2-curl php7.2-zip php7.2-mbstring php7.2-bcmath php7.2-mysql php7.2-dev
