@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y yarn
 RUN apt-get install -y npm
 
 # Composer
-RUN apt-get install -y php7.2-cli php7.2-curl php7.2-zip php7.2-mbstring php7.2-bcmath php7.2-mysql php7.2-dev
+RUN apt-get install -y php7.2-cli php7.2-curl php7.2-zip php7.2-mbstring php7.2-bcmath php7.2-mysql php7.2-dev php7.2-xdebug unzip
 RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
 RUN php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
