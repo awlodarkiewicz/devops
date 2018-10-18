@@ -31,4 +31,8 @@ RUN php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 RUN composer global require hirak/prestissimo
 
+RUN apt-get install -y python python-pip
+
+RUN pip install pipenv
+
 RUN apt-get -y autoremove
