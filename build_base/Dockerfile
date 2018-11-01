@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install -y aptitude software-properties-common
-RUN apt-get install -y python curl git
+RUN apt-get install -y python curl git gettext-base
 
 # Ansible
 RUN apt-get -y update
@@ -21,8 +21,8 @@ RUN ansible-galaxy install geerlingguy.docker
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 
+RUN apt-get install -y nodejs npm
 RUN apt-get update && apt-get install -y yarn
-RUN apt-get install -y npm
 
 # Composer
 RUN apt-get install -y php7.2-cli php7.2-curl php7.2-zip php7.2-mbstring php7.2-bcmath php7.2-mysql php7.2-dev php7.2-xdebug unzip
