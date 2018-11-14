@@ -10,5 +10,11 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 
 RUN apt-get update && apt-get install -y nodejs npm yarn
 
+RUN curl https://raw.githubusercontent.com/adshares/adserver/master/composer.json --output composer.json
+RUN composer install
+
+RUN curl https://raw.githubusercontent.com/adshares/adserver/master/package.json --output package.json
+RUN yarn install
+
 RUN apt-get -y autoremove
 RUN apt-get clean
