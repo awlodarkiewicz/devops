@@ -7,3 +7,4 @@ RUN apt-get install -y python python-pip
 RUN pip install pipenv
 
 RUN apt-get -y autoremove
+RUN apt-get clean

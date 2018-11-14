@@ -2,7 +2,7 @@ FROM awlodarkiewicz/devops:base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get install -y python
+RUN apt-get install -y python sudo bash ca-certificates
 
 # Ansible
 RUN apt-get -y update
@@ -15,3 +15,4 @@ RUN apt-get -y install ansible
 RUN ansible-galaxy install geerlingguy.docker
 
 RUN apt-get -y autoremove
+RUN apt-get clean

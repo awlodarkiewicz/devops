@@ -7,3 +7,4 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN apt-get update && apt-get install -y nodejs npm yarn
 
 RUN apt-get -y autoremove
+RUN apt-get clean

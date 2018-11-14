@@ -8,3 +8,4 @@ RUN apt-get install -y aptitude software-properties-common
 RUN apt-get install -y curl git gettext-base
 
 RUN apt-get -y autoremove
+RUN apt-get clean

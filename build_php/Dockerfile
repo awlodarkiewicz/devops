@@ -11,3 +11,5 @@ RUN php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN composer global require hirak/prestissimo
 
 RUN apt-get -y autoremove
+RUN apt-get clean
+
