@@ -7,6 +7,10 @@ RUN apt-get upgrade -y
 RUN apt-get install -y aptitude software-properties-common
 RUN apt-get install -y python curl git gettext-base
 
+# ads
+RUN add-apt-repository ppa:adshares/releases -y
+RUN apt-get install -y ads
+
 # Ansible
 RUN apt-get -y update
 RUN apt-get -y install software-properties-common
@@ -25,7 +29,10 @@ RUN apt-get install -y nodejs npm
 RUN apt-get update && apt-get install -y yarn
 
 # Composer
-RUN apt-get install -y php7.2-cli php7.2-curl php7.2-zip php7.2-mbstring php7.2-bcmath php7.2-mysql php7.2-dev php7.2-xdebug unzip
+RUN apt-get install -y \
+        php7.2-cli php7.2-mysql php7.2-bcmath php7.2-bz2 php7.2-cli php7.2-curl \
+        php7.2-gd php7.2-intl php7.2-json php7.2-mbstring php7.2-opcache \
+        php7.2-readline php7.2-sqlite3 php7.2-xml php7.2-xmlrpc php7.2-xsl php7.2-zip unzip
 RUN php -r "copy('https://getcomposer.org/installer', '/tmp/composer-setup.php');"
 RUN php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
