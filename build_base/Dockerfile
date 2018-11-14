@@ -2,10 +2,10 @@ FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update -y
-RUN apt-get upgrade -y
-RUN apt-get install -y aptitude software-properties-common
-RUN apt-get install -y curl git gettext-base
-
-RUN apt-get -y autoremove
-RUN apt-get clean
+RUN apt-get update && \
+    apt-get -qq -y upgrade && \
+    apt-get -qq -y --no-install-recommends install \
+        software-properties-common curl git gettext-base && \
+    apt-get -y autoremove && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
