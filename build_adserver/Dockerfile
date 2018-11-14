@@ -14,7 +14,7 @@ RUN curl https://raw.githubusercontent.com/adshares/adserver/master/composer.jso
 RUN composer install
 
 RUN curl https://raw.githubusercontent.com/adshares/adserver/master/package.json --output package.json
-RUN yarn install
+RUN yarn install --no-scripts
 
 RUN apt-get -y autoremove
 RUN apt-get clean
