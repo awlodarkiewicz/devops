@@ -2,17 +2,12 @@ FROM awlodarkiewicz/devops:base
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get install -y python sudo bash ca-certificates
-
-# Ansible
-RUN apt-get -y update
-RUN apt-get -y install software-properties-common
-RUN apt-add-repository -y ppa:ansible/ansible
-RUN apt-get -y update
-RUN apt-get -y install ansible
-
-# Docker
-RUN ansible-galaxy install geerlingguy.docker
-
-RUN apt-get -y autoremove
-RUN apt-get clean
+RUN apt-add-repository -y ppa:ansible/ansible && \
+    apt-get update && \
+    apt-get -qq -y --no-install-recommends install \
+        aptitude software-properties-common \
+        python sudo bash ca-certificates ansible && \
+    apt-get -y autoremove && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    ansible-galaxy install geerlingguy.docker
