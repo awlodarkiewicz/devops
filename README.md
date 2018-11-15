@@ -1,1 +1,1 @@
-# devops
+Minimal images for building Adshares projects. Based on Ubuntu 18:04
